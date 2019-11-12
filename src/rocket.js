@@ -18,13 +18,13 @@ export default class Rocket {
 
   moveUp() {
     if (this.altitude > 0) {
-      this.altitude -= 3;
+      this.altitude -= 5;
     }
   }
 
   moveDown() {
     if (this.altitude < 180) {
-      this.altitude += 3;
+      this.altitude += 5;
     }
   }
 

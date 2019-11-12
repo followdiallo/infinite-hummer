@@ -37,6 +37,11 @@ export default class Game {
 
   generateAsteroids() {
     if (this.started) {
+      const asteroid1 = new Asteroid(Math.floor(Math.random() * 160), this);
+      const asteroid2 = new Asteroid(Math.floor(Math.random() * 160), this);
+      asteroid1.left = 550;
+      asteroid2.left = 700;
+      this.gameObjects.push(asteroid1, asteroid2);
       setInterval(() => {
         this.gameObjects.push(
           new Asteroid(Math.floor(Math.random() * 160), this)
@@ -60,7 +65,6 @@ export default class Game {
     this.gameObjects = this.gameObjects.filter(o => {
       return o.spareMeFromDeletion;
     });
-    console.log(this.gameObjects);
     for (const p of this.gameObjects) {
       p.update(time);
     }

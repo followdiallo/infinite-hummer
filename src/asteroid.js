@@ -17,10 +17,11 @@ export default class Asteroid {
     }
     this.left -= 15 / time;
     if (this.left <= 60) {
-      //COLLISION DETECTION
       if (
-        this.game.rocket.altitude - 20 >= this.top &&
-        this.game.rocket.altitude <= this.top + 40
+        (this.game.rocket.altitude - 20 >= this.top &&
+          this.game.rocket.altitude <= this.top + 40) ||
+        (this.game.rocket.altitude + 20 >= this.top &&
+          this.game.rocket.altitude + 20 <= this.top + 40)
       ) {
         this.game.rocket.spareMeFromDeletion = false;
       }

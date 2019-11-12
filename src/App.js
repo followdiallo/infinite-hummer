@@ -106,7 +106,7 @@ class GameCanvas extends React.Component {
   }
 
   componentDidMount() {
-    this.game.generateAsteroids();
+    //this.game.generateAsteroids();
   }
 
   componentDidUpdate() {
@@ -125,7 +125,12 @@ class GameCanvas extends React.Component {
   };
 
   render() {
-    return <canvas className="canvas" ref="canvas" width={800} height={200} />;
+    return (
+      <div>
+        <canvas className="canvas" ref="canvas" width={800} height={200} />
+        <button onClick={() => this.game.start()}>REAL START BUTTON</button>
+      </div>
+    );
   }
 }
 

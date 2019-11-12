@@ -55,7 +55,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>INFINITE HUMMER</h1>
         <GameCanvas />
+        <a href="https://github.com/followdiallo/infinite-hummer">
+          <img
+            id="github"
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="GitHub Logo"
+          />
+        </a>
       </div>
     );
   }

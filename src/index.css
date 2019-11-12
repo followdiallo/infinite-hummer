@@ -14,9 +14,25 @@ code {
 
  */
 
+body {
+  text-align: center;
+}
+
 .canvas {
   background-color: black;
   background-image: url("stars.jpg");
   background-size: cover;
   background-position: bottom;
+}
+
+button {
+  background-color: rgb(165, 164, 164);
+  font-size: 20px;
+  border-style: solid black 2px;
+  margin: 5px;
+}
+
+#github {
+  height: 40px;
+  width: 40px;
 }

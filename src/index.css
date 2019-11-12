@@ -17,6 +17,13 @@ code {
 body {
   text-align: center;
   font-family: "Righteous", cursive;
+  /* background-color: #dfe8f5; */
+  /* background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(223, 232, 245, 1) 100%
+  ); */
 }
 
 h1 {

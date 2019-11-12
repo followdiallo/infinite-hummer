@@ -7,6 +7,7 @@ class GameCanvas extends React.Component {
   constructor() {
     super();
     this.game = new Game();
+    this.showStartButton = true;
     this.state = {
       score: 0
     };
@@ -17,8 +18,11 @@ class GameCanvas extends React.Component {
   }
 
   letsBegin = () => {
-    this.game.start();
-    this.gameLoop();
+    if (this.showStartButton) {
+      this.game.start();
+      this.gameLoop();
+      this.showStartButton = false;
+    }
   };
 
   gameLoop = timestamp => {
@@ -40,7 +44,7 @@ class GameCanvas extends React.Component {
   };
 
   restart = () => {
-    if (!this.game.started) {
+    if (!this.showStartButton) {
       this.setState({ score: 0 });
       this.game.rocket = new Rocket(this.game);
       const asteroid1 = new Asteroid(
@@ -66,8 +70,11 @@ class GameCanvas extends React.Component {
           Score: {this.state.score ? this.state.score : null}
         </h2>
         <div>
-          <button onClick={this.letsBegin}>START</button>
-          <button onClick={this.restart}>RESTART</button>
+          {this.showStartButton ? (
+            <button onClick={this.letsBegin}>START</button>
+          ) : (
+            <button onClick={this.restart}>RESTART</button>
+          )}
         </div>
       </div>
     );

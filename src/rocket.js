@@ -35,5 +35,11 @@ export default class Rocket {
 
   update(time) {
     if (!time) return;
+    if (this.altitude < 180) {
+      this.altitude++;
+    }
+    if (this.altitude === 180) {
+      this.spareMeFromDeletion = false;
+    }
   }
 }

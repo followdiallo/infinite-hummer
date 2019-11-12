@@ -30,7 +30,6 @@ class GameCanvas extends React.Component {
   };
 
   restart = () => {
-    console.log("WEEE");
     this.game.rocket = new Rocket(this.game);
     const asteroid1 = new Asteroid(Math.floor(Math.random() * 160), this.game);
     const asteroid2 = new Asteroid(Math.floor(Math.random() * 160), this.game);

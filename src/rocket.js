@@ -1,14 +1,3 @@
-// import React from "react";
-
-// export const Rocket = props => {
-//   const style = {
-//     top: `${props.top}%`,
-//     left: 20
-//   };
-
-//   return <div className="rocket" style={style}></div>;
-// };
-
 export default class Rocket {
   constructor(game) {
     this.game = game;
@@ -40,7 +29,6 @@ export default class Rocket {
     }
     if (this.altitude === 180) {
       this.spareMeFromDeletion = false;
-      this.game.started = false;
     }
   }
 }

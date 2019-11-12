@@ -7,6 +7,9 @@ class GameCanvas extends React.Component {
   constructor() {
     super();
     this.game = new Game();
+    this.state = {
+      score: 0
+    };
   }
 
   componentDidMount() {
@@ -23,14 +26,22 @@ class GameCanvas extends React.Component {
     const ctx = canvas.getContext("2d");
     let deltaTime = timestamp - this.lastTime;
     this.lastTime = timestamp;
+    if (!this.game.gameObjects.includes(this.game.rocket)) {
+      this.game.started = false;
+    }
     ctx.clearRect(0, 0, 800, 200);
     this.game.updateParts(deltaTime);
     this.game.drawCanvas(ctx);
+    if (this.game.started) {
+      const newScore = this.state.score + 1;
+      this.setState({ score: newScore });
+    }
     requestAnimationFrame(this.gameLoop);
   };
 
   restart = () => {
     if (!this.game.started) {
+      this.setState({ score: 0 });
       this.game.rocket = new Rocket(this.game);
       const asteroid1 = new Asteroid(
         Math.floor(Math.random() * 160),
@@ -51,6 +62,9 @@ class GameCanvas extends React.Component {
     return (
       <div>
         <canvas className="canvas" ref="canvas" width={800} height={200} />
+        <h2 className="score">
+          Score: {this.state.score ? this.state.score : null}
+        </h2>
         <div>
           <button onClick={this.letsBegin}>START</button>
           <button onClick={this.restart}>RESTART</button>

@@ -40,6 +40,7 @@ export default class Rocket {
     }
     if (this.altitude === 180) {
       this.spareMeFromDeletion = false;
+      this.game.started = false;
     }
   }
 }

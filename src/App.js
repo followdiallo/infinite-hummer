@@ -30,12 +30,21 @@ class GameCanvas extends React.Component {
   };
 
   restart = () => {
-    this.game.rocket = new Rocket(this.game);
-    const asteroid1 = new Asteroid(Math.floor(Math.random() * 160), this.game);
-    const asteroid2 = new Asteroid(Math.floor(Math.random() * 160), this.game);
-    asteroid1.left = 550;
-    asteroid2.left = 700;
-    this.game.gameObjects = [this.game.rocket, asteroid1, asteroid2];
+    if (!this.game.started) {
+      this.game.rocket = new Rocket(this.game);
+      const asteroid1 = new Asteroid(
+        Math.floor(Math.random() * 160),
+        this.game
+      );
+      const asteroid2 = new Asteroid(
+        Math.floor(Math.random() * 160),
+        this.game
+      );
+      asteroid1.left = 550;
+      asteroid2.left = 700;
+      this.game.gameObjects = [this.game.rocket, asteroid1, asteroid2];
+      this.game.started = true;
+    }
   };
 
   render() {

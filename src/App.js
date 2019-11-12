@@ -57,6 +57,9 @@ class App extends React.Component {
       <div>
         <h1>INFINITE HUMMER</h1>
         <GameCanvas />
+        <p>Hum a rising tone to move the piece up.</p>
+        <p>Hum a falling tone to move the piece down.</p>
+        <p>Avoid the obstacles! Don't hit the bottom!</p>
         <a href="https://github.com/followdiallo/infinite-hummer">
           <img
             id="github"

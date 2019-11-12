@@ -16,6 +16,15 @@ code {
 
 body {
   text-align: center;
+  font-family: "Righteous", cursive;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+p {
+  font-size: 18px;
 }
 
 .canvas {
@@ -23,13 +32,20 @@ body {
   background-image: url("stars.jpg");
   background-size: cover;
   background-position: bottom;
+  border-style: solid;
+  border-width: 4px;
+  border-color: rgb(165, 164, 164);
+  border-radius: 3px;
 }
 
 button {
   background-color: rgb(165, 164, 164);
-  font-size: 20px;
-  border-style: solid black 2px;
+  font-family: "Righteous", cursive;
+  font-size: 25px;
   margin: 5px;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 3px;
 }
 
 #github {

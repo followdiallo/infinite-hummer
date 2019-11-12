@@ -11,9 +11,6 @@ export default class Game {
 
     this.voice = new Wad({ source: "mic" });
     this.tuner = new Wad.Poly();
-    this.tuner.add(this.voice);
-    this.voice.play();
-    this.tuner.updatePitch();
     this.lastNote = [];
   }
 
@@ -51,9 +48,14 @@ export default class Game {
   }
 
   start() {
-    this.started = true;
-    this.generateAsteroids();
-    this.logPitch();
+    if (!this.started) {
+      this.started = true;
+      this.tuner.add(this.voice);
+      this.voice.play();
+      this.tuner.updatePitch();
+      this.generateAsteroids();
+      this.logPitch();
+    }
   }
 
   stop = () => {

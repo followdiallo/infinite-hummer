@@ -10,28 +10,13 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
 
-.game-area {
-  width: 800px;
-  height: 200px;
-  border: 2px solid black;
-  margin: 25px;
-}
 
-.rocket {
-  position: relative;
-  height: 20px;
-  width: 50px;
-  background-color: red;
-}
+ */
 
-.asteroid {
-  position: relative;
-  height: 40px;
-  width: 40px;
-  background-color: black;
-} */
 .canvas {
   background-color: black;
+  background-image: url("stars.jpg");
+  background-size: cover;
+  background-position: bottom;
 }

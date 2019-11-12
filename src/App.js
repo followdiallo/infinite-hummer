@@ -1,10 +1,16 @@
 import React from "react";
 import Game from "./game";
+import Rocket from "./rocket";
+import Asteroid from "./asteroid";
 
 class GameCanvas extends React.Component {
   constructor() {
     super();
     this.game = new Game();
+  }
+
+  componentDidMount() {
+    this.game.stop();
   }
 
   letsBegin = () => {
@@ -23,23 +29,30 @@ class GameCanvas extends React.Component {
     requestAnimationFrame(this.gameLoop);
   };
 
+  restart = () => {
+    console.log("WEEE");
+    this.game.rocket = new Rocket(this.game);
+    const asteroid1 = new Asteroid(Math.floor(Math.random() * 160), this.game);
+    const asteroid2 = new Asteroid(Math.floor(Math.random() * 160), this.game);
+    asteroid1.left = 550;
+    asteroid2.left = 700;
+    this.game.gameObjects = [this.game.rocket, asteroid1, asteroid2];
+  };
+
   render() {
     return (
       <div>
         <canvas className="canvas" ref="canvas" width={800} height={200} />
-        <button onClick={() => this.letsBegin()}>START</button>
-        {/* <button onClick={() => this.game.stop()}>STOP</button> */}
+        <div>
+          <button onClick={this.letsBegin}>START</button>
+          <button onClick={this.restart}>RESTART</button>
+        </div>
       </div>
     );
   }
 }
 
 class App extends React.Component {
-  handleClick = () => {
-    this.game.start();
-    this.setState({ started: true });
-  };
-
   render() {
     return (
       <div>

@@ -1,7 +1,7 @@
 export default class Rocket {
   constructor(game) {
     this.game = game;
-    this.altitude = 100;
+    this.altitude = 81;
     this.spareMeFromDeletion = true;
   }
 

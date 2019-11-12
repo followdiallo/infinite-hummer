@@ -55,7 +55,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>INFINITE HUMMER</h1>
+        <h1 className="gradient-text">INFINITE HUMMER</h1>
         <GameCanvas />
         <p>Hum a rising tone to move the piece up.</p>
         <p>Hum a falling tone to move the piece down.</p>

@@ -51,6 +51,7 @@ export default class Game {
     if (!this.started) {
       this.started = true;
       this.tuner.add(this.voice);
+      this.tuner.setVolume(0);
       this.voice.play();
       this.tuner.updatePitch();
       this.generateAsteroids();

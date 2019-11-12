@@ -97,70 +97,30 @@
 // export default App;
 
 import React from "react";
-import Rocket from "./rocket";
-import Asteroid from "./asteroid";
+import Game from "./game";
 
 class GameCanvas extends React.Component {
   constructor() {
     super();
-    this.lastTime = 0;
-    this.rocket = new Rocket();
-    this.gameObjects = [this.rocket];
-    this.state = {
-      started: false
-    };
+    this.game = new Game();
   }
 
   componentDidMount() {
-    //this.drawCanvas();
-    const canvas = this.refs.canvas;
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "blue";
-    ctx.fillRect(0, 0, 800, 200);
-    setInterval(() => {
-      //console.log(this.gameObjects);
-      this.gameObjects.push(new Asteroid(Math.floor(Math.random() * 150)));
-    }, 3000);
+    this.game.generateAsteroids();
   }
 
   componentDidUpdate() {
     this.gameLoop();
   }
 
-  updateParts(time) {
-    this.gameObjects = this.gameObjects.filter(o => {
-      return o.spareMeFromDeletion;
-    });
-    console.log(this.gameObjects);
-    for (const p of this.gameObjects) {
-      p.update(time);
-    }
-  }
-
-  drawCanvas(context) {
-    // const canvas = this.refs.canvas;
-    // if (canvas) {
-    //   const ctx = canvas.getContext("2d");
-    //   // ctx.fillStyle = "blue";
-    //   // ctx.fillRect(0, 0, 1500, 200);
-    //   for (const o of this.gameObjects) {
-    //     o.draw(ctx);
-    //   }
-    // }
-    for (const o of this.gameObjects) {
-      o.draw(context);
-    }
-  }
-
   gameLoop = timestamp => {
-    //console.log("Looping woooooo stop me");
     const canvas = this.refs.canvas;
     const ctx = canvas.getContext("2d");
     let deltaTime = timestamp - this.lastTime;
     this.lastTime = timestamp;
     ctx.clearRect(0, 0, 800, 200);
-    this.updateParts(deltaTime);
-    this.drawCanvas(ctx);
+    this.game.updateParts(deltaTime);
+    this.game.drawCanvas(ctx);
     requestAnimationFrame(this.gameLoop);
   };
 

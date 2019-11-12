@@ -10,7 +10,8 @@
 // };
 
 export default class Rocket {
-  constructor() {
+  constructor(game) {
+    this.game = game;
     this.altitude = 100;
     this.spareMeFromDeletion = true;
   }
@@ -22,7 +23,7 @@ export default class Rocket {
   }
 
   moveDown() {
-    if (this.altitude < 200) {
+    if (this.altitude < 180) {
       this.altitude += 3;
     }
   }

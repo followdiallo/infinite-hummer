@@ -15,7 +15,7 @@ export default class Asteroid {
     if (!time) {
       return;
     }
-    this.left -= 15 / time;
+    this.left -= 25 / time;
     if (this.left <= 60) {
       if (
         (this.game.rocket.altitude - 20 >= this.top &&

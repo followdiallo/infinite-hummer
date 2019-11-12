@@ -129,6 +129,7 @@ class GameCanvas extends React.Component {
       <div>
         <canvas className="canvas" ref="canvas" width={800} height={200} />
         <button onClick={() => this.game.start()}>REAL START BUTTON</button>
+        <button onClick={() => this.game.stop()}>REAL STOP BUTTON</button>
       </div>
     );
   }

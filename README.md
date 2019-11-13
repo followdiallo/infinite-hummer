@@ -46,3 +46,10 @@ Then go to **localhost:3000** to play the game :)
 - [React](https://reactjs.org/)
 - [Wad](https://github.com/rserota/wad) - "a JavaScript library for manipulating audio"
 - Starry [background image](https://unsplash.com/photos/L8126OwlroY) by Federico Beccari on Unsplash
+
+---
+
+## Features Coming Soon
+
+- Asteroids will move faster as the game progresses
+- And more!

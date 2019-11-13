@@ -18,7 +18,7 @@ export default class Rocket {
   }
 
   draw(context) {
-    context.fillStyle = "red";
+    context.fillStyle = "#58dbc1";
     context.fillRect(20, this.altitude, 40, 20);
   }
 

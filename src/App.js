@@ -18,11 +18,9 @@ class GameCanvas extends React.Component {
   }
 
   launchGame = () => {
-    if (this.showStartButton) {
-      this.game.start();
-      this.gameLoop();
-      this.showStartButton = false;
-    }
+    this.game.start();
+    this.gameLoop();
+    this.showStartButton = false;
   };
 
   gameLoop = timestamp => {

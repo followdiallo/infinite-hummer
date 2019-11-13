@@ -67,7 +67,10 @@ class GameCanvas extends React.Component {
       <div>
         <canvas className="canvas" ref="canvas" width={800} height={200} />
         <h2 className="score">
-          Score: {this.state.score ? this.state.score : null}
+          <div className="score-text">Score:</div>{" "}
+          <div className="score-number">
+            {this.state.score ? this.state.score : null}
+          </div>
         </h2>
         <div>
           {this.showStartButton ? (

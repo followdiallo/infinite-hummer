@@ -73,3 +73,18 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.score {
+  margin: 1%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.score-text {
+  width: 9%;
+}
+
+.score-number {
+  width: 5%;
+}

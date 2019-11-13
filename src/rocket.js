@@ -2,7 +2,7 @@ export default class Rocket {
   constructor(game) {
     this.game = game;
     this.altitude = 81;
-    this.spareMeFromDeletion = true;
+    this.continueRendering = true;
   }
 
   moveUp() {
@@ -12,8 +12,9 @@ export default class Rocket {
   }
 
   moveDown() {
-    if (this.altitude < 180) {
-      this.altitude += 5;
+    this.altitude += 5;
+    if (this.altitude >= 180) {
+      this.continueRendering = false;
     }
   }
 
@@ -26,9 +27,8 @@ export default class Rocket {
     if (!time) return;
     if (this.altitude < 180) {
       this.altitude++;
-    }
-    if (this.altitude === 180) {
-      this.spareMeFromDeletion = false;
+    } else {
+      this.continueRendering = false;
     }
   }
 }

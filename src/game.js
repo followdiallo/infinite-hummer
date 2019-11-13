@@ -8,7 +8,6 @@ export default class Game {
     this.rocket = new Rocket(this);
     this.gameObjects = [this.rocket];
     this.started = false;
-
     this.voice = new Wad({ source: "mic" });
     this.tuner = new Wad.Poly();
     this.lastNote = [];
@@ -19,26 +18,24 @@ export default class Game {
       this.tuner.pitch &&
       this.tuner.pitch !== this.lastNote[this.lastNote.length - 1]
     ) {
-      //console.log(this.tuner.pitch, this.tuner.noteName);
-      const noteHistory = Array.from(this.lastNote);
-      noteHistory.push(this.tuner.pitch);
       if (this.tuner.pitch > this.lastNote[this.lastNote.length - 1]) {
         this.rocket.moveUp();
       } else {
         this.rocket.moveDown();
       }
-      this.lastNote = noteHistory;
+      this.lastNote.push(this.tuner.pitch);
     }
     requestAnimationFrame(this.logPitch);
   };
 
   generateAsteroids() {
     if (this.started) {
+      this.rocket = new Rocket(this);
       const asteroid1 = new Asteroid(Math.floor(Math.random() * 160), this);
       const asteroid2 = new Asteroid(Math.floor(Math.random() * 160), this);
       asteroid1.left = 550;
       asteroid2.left = 700;
-      this.gameObjects.push(asteroid1, asteroid2);
+      this.gameObjects = [this.rocket, asteroid1, asteroid2];
       setInterval(() => {
         this.gameObjects.push(
           new Asteroid(Math.floor(Math.random() * 160), this)
@@ -66,7 +63,7 @@ export default class Game {
 
   updateParts(time) {
     this.gameObjects = this.gameObjects.filter(o => {
-      return o.spareMeFromDeletion;
+      return o.continueRendering;
     });
     for (const p of this.gameObjects) {
       p.update(time);

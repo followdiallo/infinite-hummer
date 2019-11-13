@@ -12,7 +12,7 @@
 
 ![Screencap](./public/screencap.gif)
 
-You piece will gradually fall.<br>
+Your piece will gradually fall.<br>
 Hum a rising tone to move the piece up.<br>
 Hum a falling tone to move the piece down.<br>
 Avoid the obstacles! Don't hit the bottom!

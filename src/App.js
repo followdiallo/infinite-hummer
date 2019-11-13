@@ -17,7 +17,7 @@ class GameCanvas extends React.Component {
     this.game.stop();
   }
 
-  letsBegin = () => {
+  launchGame = () => {
     if (this.showStartButton) {
       this.game.start();
       this.gameLoop();
@@ -74,7 +74,7 @@ class GameCanvas extends React.Component {
         </h2>
         <div>
           {this.showStartButton ? (
-            <button onClick={this.letsBegin}>START</button>
+            <button onClick={this.launchGame}>START</button>
           ) : (
             <button onClick={this.restart}>RESTART</button>
           )}

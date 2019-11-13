@@ -3,7 +3,7 @@ export default class Asteroid {
     this.game = game;
     this.top = top;
     this.left = 800;
-    this.spareMeFromDeletion = true;
+    this.continueRendering = true;
   }
 
   draw(context) {
@@ -26,11 +26,11 @@ export default class Asteroid {
         (this.game.rocket.altitude + 20 >= this.top &&
           this.game.rocket.altitude + 20 <= this.top + 40)
       ) {
-        this.game.rocket.spareMeFromDeletion = false;
+        this.game.rocket.continueRendering = false;
       }
     }
     if (this.left < -50) {
-      this.spareMeFromDeletion = false;
+      this.continueRendering = false;
     }
   }
 }

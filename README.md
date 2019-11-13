@@ -52,4 +52,5 @@ Then go to **localhost:3000** to play the game :)
 ## Features Coming Soon
 
 - Asteroids will move faster as the game progresses
+- Leaderboard
 - And more!
